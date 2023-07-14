@@ -23,10 +23,10 @@ public class Day02_JUnitAssertions {
     @Test
     public void assertions(){
         Assert.assertEquals(5,5);
-        Assert.assertEquals("Test case failed", 5, 4); //If test case fails, we see the message
+       // Assert.assertEquals("Test case failed", 5, 4); //If test case fails, we see the message
 
         Assert.assertTrue("apple".contains("a"));
-        Assert.assertTrue("apple".contains("b")); //Fails
+       // Assert.assertTrue("apple".contains("b")); //Fails
 
         Assert.assertFalse("orange".contains("w")); //Passes
     }
