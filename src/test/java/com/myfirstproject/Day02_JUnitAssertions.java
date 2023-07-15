@@ -27,7 +27,9 @@ public class Day02_JUnitAssertions {
 
         Assert.assertTrue("apple".contains("a"));
         Assert.assertTrue("apple".contains("b")); //Fails
+        Assert.assertTrue("Hello".length()!=6); //Passes
 
         Assert.assertFalse("orange".contains("w")); //Passes
+        Assert.assertFalse(1>9); //Passes
     }
 }
