@@ -61,6 +61,7 @@ public class Day03_Locators {
         boolean isHeaderDisplayed = driver.findElement(By.tagName("h5")).isDisplayed();
         Assert.assertTrue(isHeaderDisplayed);
 
+    Assert.assertTrue(driver.findElement(By.xpath("//h5[@class='oxd-text oxd-text--h5 orangehrm-login-title']")).isDisplayed());
 
     }
 }
