@@ -45,6 +45,10 @@ public void setUp(){
     driver.findElement(By.id("calculate")).click();
     String result = driver.findElement(By.id("answer")).getText();
     assertEquals(Integer.parseInt(input1)+Integer.parseInt(input2)+"", result); //verifying the result. Could hae used "valueOf" instead of "parseInt" also
+    assertEquals(Integer.parseInt(input1)+Integer.parseInt(input2), Integer.parseInt(result)); //or this way
+
+    assertEquals(String.valueOf(Integer.parseInt(input1)+Integer.parseInt(input2)), result); //or compare as String
+
     System.out.println("result = " + result);
 }
 
