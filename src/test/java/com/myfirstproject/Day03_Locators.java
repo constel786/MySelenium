@@ -56,12 +56,11 @@ public class Day03_Locators {
     // If header is displayed on the page then logout is successful
     // <h5 class="oxd-text oxd-text--h5 orangehrm-login-title" data-v-7b563373="" data-v-358db50f="">Login</h5>
     //Assert.assertTrue(driver.findElement(By.className("oxd-text oxd-text--h5 orangehrm-login-title")).isDisplayed()); DID NOT WORK due to space in the middle
-    Assert.assertTrue(driver.getCurrentUrl().contains("login")); // but core elements are preferred in IT culture
         Assert.assertTrue(driver.findElement(By.tagName("h5")).isDisplayed());
 
         boolean isHeaderDisplayed = driver.findElement(By.tagName("h5")).isDisplayed();
         Assert.assertTrue(isHeaderDisplayed);
 
-    driver.quit();
+
     }
 }
