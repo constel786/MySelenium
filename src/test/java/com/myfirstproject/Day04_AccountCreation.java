@@ -42,5 +42,9 @@ public class Day04_AccountCreation {
         Assert.assertTrue(driver.findElement(By.xpath("//h2[.='New User Signup!']")).isDisplayed());
         driver.findElement(By.xpath("//input[@name='name']")).sendKeys("Johnny Walker");
 
+        driver.findElement(By.cssSelector("input[data-qa='signup-email']")).sendKeys("nowayjose@gmail.com");
+        driver.findElement(By.cssSelector("input[data-qa='signup-button']")).click();
+
+
     }
 }
