@@ -41,7 +41,7 @@ public class Day04_AccountCreation {
         Assert.assertTrue(driver.findElement(By.xpath("//h2[.='New User Signup!']")).isDisplayed());
         driver.findElement(By.xpath("//input[@name='name']")).sendKeys("Johnny Walker");
 
-        driver.findElement(By.cssSelector("input[data-qa='signup-email']")).sendKeys("nowayjose@gmail.com");
+        driver.findElement(By.cssSelector("input[data-qa='signup-email']")).sendKeys("nowayjose3@gmail.com");
         driver.findElement(By.cssSelector("button[data-qa='signup-button']")).click();
 
 //        8. Verify that 'ENTER ACCOUNT INFORMATION' is visible - N/A
@@ -66,7 +66,7 @@ public class Day04_AccountCreation {
         //2. Create select object
         Select daySelect = new Select(day);
         //3. Use select object to interact with dropdown
-        daySelect.selectByIndex(6); //Using index to select day 5
+        daySelect.selectByIndex(5); //Using index to select day 5. - Note: Index starts at 0
         //MONTH
         //1. Locate the day dropdown element
         WebElement month = driver.findElement(By.cssSelector("select[data-qa='months']"));
@@ -81,6 +81,45 @@ public class Day04_AccountCreation {
         Select yearSelect = new Select(year);
         //3. Use select object to interact with dropdown
         yearSelect.selectByVisibleText("2000"); //Using visible text to select 2000
+
+        driver.findElement(By.cssSelector("#newsletter")).click();
+        driver.findElement(By.cssSelector("#optin")).click();
+        driver.findElement(By.id("first_name")).sendKeys("Johnny");
+        driver.findElement(By.id("last_name")).sendKeys("Walker");
+        driver.findElement(By.id("company")).sendKeys("Google");
+        driver.findElement(By.id("address1")).sendKeys("123 Main St");
+
+        WebElement country = driver.findElement(By.id("country"));
+        Select countrySelect = new Select(country);
+        countrySelect.selectByVisibleText("United States");
+
+        driver.findElement(By.id("state")).sendKeys("NY");
+        driver.findElement(By.id("city")).sendKeys("NYC");
+        driver.findElement(By.id("zipcode")).sendKeys("34512");
+        driver.findElement(By.id("mobile_number")).sendKeys("+12403980544");
+        driver.findElement(By.xpath("//button[@data-qa='create-account']")).click();
+
+        //        NOTE: THERE IS A WEB POP UP THAT IS SHOWING UP AND WE MUST CLICK CLOSE TO PROCEED
+//        USING TRY CATCH BECAUSE THIS POP UP MAY NOT ALWAYS SHOW UP
+        try {
+            Thread.sleep(5000);
+//            try to click the web pop up if it shows up
+//            if the pop-up doesn't up, then do not fail.... just catch it.. and continue the test case
+            driver.findElement(By.xpath("//div[@id='dismiss-button']")).click();
+        }catch (Exception e){
+            System.out.println("POP UP IS NOT DISPLAYED... JUST CONTINUE");
+        }
+
+        Assert.assertTrue(driver.findElement(By.xpath("//b[.='Account Created!']")).isDisplayed());
+        driver.findElement(By.xpath("//a[@data-qa='continue-button']")).click();
+        Assert.assertTrue(driver.findElement(By.xpath("//*[contains(text(), 'Logged in as')]")).isDisplayed());
+        driver.findElement(By.xpath("//*[contains(text(), 'Delete Account')]")).click();
+        Assert.assertTrue(driver.findElement(By.xpath("//*[contains(text(), 'Delete Account')]")).isDisplayed());
+        driver.findElement(By.xpath("//a[@data-qa='continue-button']")).click();
+
+
+
+
 
 
     }
