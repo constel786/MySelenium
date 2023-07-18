@@ -41,7 +41,7 @@ public class Day04_AccountCreation {
         Assert.assertTrue(driver.findElement(By.xpath("//h2[.='New User Signup!']")).isDisplayed());
         driver.findElement(By.xpath("//input[@name='name']")).sendKeys("Johnny Walker");
 
-        driver.findElement(By.cssSelector("input[data-qa='signup-email']")).sendKeys("nowayjose3@gmail.com");
+        driver.findElement(By.cssSelector("input[data-qa='signup-email']")).sendKeys("nowayjose5@gmail.com");
         driver.findElement(By.cssSelector("button[data-qa='signup-button']")).click();
 
 //        8. Verify that 'ENTER ACCOUNT INFORMATION' is visible - N/A
@@ -98,11 +98,14 @@ public class Day04_AccountCreation {
         driver.findElement(By.id("zipcode")).sendKeys("34512");
         driver.findElement(By.id("mobile_number")).sendKeys("+12403980544");
         driver.findElement(By.xpath("//button[@data-qa='create-account']")).click();
+        Assert.assertTrue(driver.findElement(By.xpath("//b[.='Account Created!']")).isDisplayed());
+        driver.findElement(By.xpath("//a[@data-qa='continue-button']")).click();
+
 
         //        NOTE: THERE IS A WEB POP UP THAT IS SHOWING UP AND WE MUST CLICK CLOSE TO PROCEED
 //        USING TRY CATCH BECAUSE THIS POP UP MAY NOT ALWAYS SHOW UP
         try {
-            Thread.sleep(5000);
+            Thread.sleep(10000);
 //            try to click the web pop up if it shows up
 //            if the pop-up doesn't up, then do not fail.... just catch it.. and continue the test case
             driver.findElement(By.xpath("//div[@id='dismiss-button']")).click();
@@ -110,8 +113,6 @@ public class Day04_AccountCreation {
             System.out.println("POP UP IS NOT DISPLAYED... JUST CONTINUE");
         }
 
-        Assert.assertTrue(driver.findElement(By.xpath("//b[.='Account Created!']")).isDisplayed());
-        driver.findElement(By.xpath("//a[@data-qa='continue-button']")).click();
         Assert.assertTrue(driver.findElement(By.xpath("//*[contains(text(), 'Logged in as')]")).isDisplayed());
         driver.findElement(By.xpath("//*[contains(text(), 'Delete Account')]")).click();
         Assert.assertTrue(driver.findElement(By.xpath("//*[contains(text(), 'Delete Account')]")).isDisplayed());
