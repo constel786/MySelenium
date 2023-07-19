@@ -10,7 +10,6 @@ public class Day04_TestBaseTest extends TestBase {
     public void testBaseTest(){
         driver.get("https://www.amazon.com");
 
-
     }
 
 }
