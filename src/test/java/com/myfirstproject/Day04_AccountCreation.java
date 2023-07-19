@@ -1,6 +1,7 @@
 package com.myfirstproject;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -31,7 +32,10 @@ public class Day04_AccountCreation {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         driver.manage().window().maximize();
     }
-
+    @After
+    public void tearDown(){
+        driver.quit();
+    }
     @Test
     public void accountCreationTest(){
         driver.get("https://www.automationexercise.com");
@@ -41,7 +45,7 @@ public class Day04_AccountCreation {
         Assert.assertTrue(driver.findElement(By.xpath("//h2[.='New User Signup!']")).isDisplayed());
         driver.findElement(By.xpath("//input[@name='name']")).sendKeys("Johnny Walker");
 
-        driver.findElement(By.cssSelector("input[data-qa='signup-email']")).sendKeys("nowayjose5@gmail.com");
+        driver.findElement(By.cssSelector("input[data-qa='signup-email']")).sendKeys("nowayjose7@gmail.com");
         driver.findElement(By.cssSelector("button[data-qa='signup-button']")).click();
 
 //        8. Verify that 'ENTER ACCOUNT INFORMATION' is visible - N/A
@@ -82,8 +86,8 @@ public class Day04_AccountCreation {
         //3. Use select object to interact with dropdown
         yearSelect.selectByVisibleText("2000"); //Using visible text to select 2000
 
-        driver.findElement(By.cssSelector("#newsletter")).click();
-        driver.findElement(By.cssSelector("#optin")).click();
+        driver.findElement(By.cssSelector("input[id='newsletter']")).click();
+        driver.findElement(By.cssSelector("input[id='optin']")).click();
         driver.findElement(By.id("first_name")).sendKeys("Johnny");
         driver.findElement(By.id("last_name")).sendKeys("Walker");
         driver.findElement(By.id("company")).sendKeys("Google");
@@ -94,27 +98,36 @@ public class Day04_AccountCreation {
         countrySelect.selectByVisibleText("United States");
 
         driver.findElement(By.id("state")).sendKeys("NY");
-        driver.findElement(By.id("city")).sendKeys("NYC");
-        driver.findElement(By.id("zipcode")).sendKeys("34512");
+        driver.findElement(By.id("city")).sendKeys("Brooklyn");
+        driver.findElement(By.id("zipcode")).sendKeys("11201");
         driver.findElement(By.id("mobile_number")).sendKeys("+12403980544");
         driver.findElement(By.xpath("//button[@data-qa='create-account']")).click();
-        Assert.assertTrue(driver.findElement(By.xpath("//b[.='Account Created!']")).isDisplayed());
-        driver.findElement(By.xpath("//a[@data-qa='continue-button']")).click();
 
-
-        //        NOTE: THERE IS A WEB POP UP THAT IS SHOWING UP AND WE MUST CLICK CLOSE TO PROCEED
+//        NOTE: THERE IS A WEB POP UP THAT IS SHOWING UP AND WE MUST CLICK CLOSE TO PROCEED
 //        USING TRY CATCH BECAUSE THIS POP UP MAY NOT ALWAYS SHOW UP
         try {
-            Thread.sleep(10000);
+            Thread.sleep(5000);
+            driver.navigate().refresh();
 //            try to click the web pop up if it shows up
 //            if the pop-up doesn't up, then do not fail.... just catch it.. and continue the test case
-            driver.findElement(By.xpath("//div[@id='dismiss-button']")).click();
+            Assert.assertTrue(driver.findElement(By.xpath("//b[.='Account Created!']")).isDisplayed());
+            driver.navigate().refresh();
+            Thread.sleep(5000);
+            driver.findElement(By.xpath("//a[@data-qa='continue-button']")).click();
+            driver.navigate().refresh();
         }catch (Exception e){
-            System.out.println("POP UP IS NOT DISPLAYED... JUST CONTINUE");
+            throw new RuntimeException(e);
         }
-
+        try {
+            driver.navigate().refresh();
+            Thread.sleep(10000);
+            driver.findElement(By.xpath("//a[@data-qa='continue-button']")).click();
+            driver.navigate().refresh();
+        } catch (Exception e){
+            throw new RuntimeException(e);
+        }
         Assert.assertTrue(driver.findElement(By.xpath("//*[contains(text(), 'Logged in as')]")).isDisplayed());
-        driver.findElement(By.xpath("//*[contains(text(), 'Delete Account')]")).click();
+        driver.findElement(By.xpath("//a[@href='/delete_account']")).click();
         Assert.assertTrue(driver.findElement(By.xpath("//*[contains(text(), 'Delete Account')]")).isDisplayed());
         driver.findElement(By.xpath("//a[@data-qa='continue-button']")).click();
 
