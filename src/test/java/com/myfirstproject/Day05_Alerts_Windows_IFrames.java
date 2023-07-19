@@ -25,10 +25,30 @@ public class Day05_Alerts_Windows_IFrames extends TestBase {
         //getting all list items in this iframe
         List<WebElement> leftFrameListItems =  driver.findElements(By.xpath("//li"));
         for (WebElement each : leftFrameListItems){
-            System.out.println(each);
+            System.out.println(each.getText());
         }
         WebElement lastLeftItem = leftFrameListItems.get(leftFrameListItems.size()-1);
         Assert.assertEquals("Expected and Actual Not Equal","Left List Item 29", lastLeftItem.getText()); //message will only show up if test case fails
+
 //        And Assert that "Middle List Item 39" is the last element in the "Middle"
+        /*
+        NOTE: at this point driver is in the left frame
+        so it cannot see anything outside of that frame
+        and we must switch to the middle frame to work the elements in the middle frame
+        1. index -> driver.switchTo().frame( )
+        2. id or name ->  driver.switchTo().frame("middle")
+        3. webelement -> driver.switchTo().frame( driver.findElement(By.xpath("//frame[@name='left']")) );
+         */
+        WebElement middleFrame = driver.findElement(By.xpath("//frame[@name='middle']"));
+        driver.switchTo().frame(middleFrame); //switching by webelement
+        // getting all middle frame elements
+        List<WebElement> middleFrameListItems = driver.findElements(By.xpath("//li"));
+        for (WebElement each : middleFrameListItems){
+            System.out.println(each.getText());
+        }
+
+        String lastItemText = middleFrameListItems.get(middleFrameListItems.size()-1).getText();
+        Assert.assertEquals("Expected and Actual Not Equal","Middle List Item 39",lastItemText);
+
     }
 }
