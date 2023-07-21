@@ -85,8 +85,8 @@ public class Day05_Alerts_Windows_IFrames extends TestBase {
         driver.findElement(By.id("alertexamples")).click(); //clicking the button that is on window 2
 //        And Accept alert
         driver.switchTo().alert().accept();
-//        And Click on "Show confirm box" button
-//        And Cancel alert
+        And Click on "Show confirm box" button
+        And Cancel alert
 //        Then Assert that alert is canceled
 //        When Click on "Show prompt box" button
 //        And Send "Hello World!" to the alert
