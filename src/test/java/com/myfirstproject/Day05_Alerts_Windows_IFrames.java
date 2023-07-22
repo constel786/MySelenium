@@ -79,6 +79,7 @@ public class Day05_Alerts_Windows_IFrames extends TestBase {
             if (!eachHandle.equals(window1Handle)){
                 System.out.println(eachHandle);
                 driver.switchTo().window(eachHandle);
+                break;
             }
         }
 //        And Click on "Show alert box" button
@@ -86,11 +87,19 @@ public class Day05_Alerts_Windows_IFrames extends TestBase {
 //        And Accept alert
         driver.switchTo().alert().accept();
 //        And Click on "Show confirm box" button
+        driver.findElement(By.xpath("//input[@id='confirmexample']")).click();
 //        And Cancel alert
+        driver.switchTo().alert().dismiss();
 //        Then Assert that alert is canceled
+        Assert.assertTrue(driver.findElement(By.xpath("//p[@id='confirmexplanation']")).getText().contains("Cancel"));
 //        When Click on "Show prompt box" button
+        driver.findElement(By.xpath("//input[@id='promptexample']")).click();
 //        And Send "Hello World!" to the alert
+        driver.switchTo().alert().sendKeys("Hello World!");
+        driver.switchTo().alert().accept();
 //        Then Assert that "Hello World!" is sent
+        Assert.assertTrue(driver.findElement(By.cssSelector("#promptreturn")).getText().contains("Hello World!"));
+
     }
 }
 
