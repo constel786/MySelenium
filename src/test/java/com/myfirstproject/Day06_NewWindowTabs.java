@@ -11,7 +11,7 @@ public class Day06_NewWindowTabs extends TestBase {
     public void newTabTest() throws InterruptedException {
 
         driver.get("https://www.linkedin.com");
-        //Assert.assertTrue(driver.getTitle().contains("Linkedin"));
+        Assert.assertTrue(driver.getTitle().contains("LinkedIn"));
         String window1Handle = driver.getWindowHandle();
         System.out.println("Window 1 = " + window1Handle);
         Thread.sleep(5000);
