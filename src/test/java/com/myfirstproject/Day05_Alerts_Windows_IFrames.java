@@ -79,7 +79,7 @@ public class Day05_Alerts_Windows_IFrames extends TestBase {
             if (!eachHandle.equals(window1Handle)){
                 System.out.println(eachHandle);
                 driver.switchTo().window(eachHandle);
-
+                break;
             }
         }
 //        And Click on "Show alert box" button
