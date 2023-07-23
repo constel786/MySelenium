@@ -44,6 +44,5 @@ public class Day07_Cookies extends TestBase {
             System.out.println("eachCookie = " + eachCookie);
                     
         }
-        
     }
 }

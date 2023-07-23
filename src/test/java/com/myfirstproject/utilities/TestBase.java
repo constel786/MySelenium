@@ -5,6 +5,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.time.Duration;
 
@@ -15,6 +17,9 @@ public abstract class TestBase {
     public void setUp(){
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
+    //    WebDriverManager.firefoxdriver().setup();
+    //    driver = new FirefoxDriver();
+    //    WebDriver driver = new ChromeDriver(new ChromeOptions().addArguments("--remote-allow-origins=*"));
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         driver.manage().window().maximize();
 
