@@ -75,6 +75,7 @@ public class Day07_Actions1 extends TestBase {
                 .sendKeys(Keys.ARROW_DOWN)
                 .sendKeys(Keys.ARROW_DOWN)
                 .sendKeys(Keys.PAGE_DOWN)
-                .perform();
+                .build() //optional but recommended when we have method chains
+                .perform(); //mandatory
     }
 }
