@@ -11,7 +11,11 @@ public class Day07_Actions2 extends TestBase {
     public void dragAndDropTest(){
 
         driver.get("https://jqueryui.com/droppable/");
-        driver.switchTo().frame(0);
+
+        driver.switchTo().frame(0); //or ALTERNATIVELY
+        // WebElement frameElement = driver.findElement(By.xpath("//iframe[@class='demo-frame']"));
+        // driver.switchTo().frame(frameElement);
+
         WebElement target = driver.findElement(By.id("draggable"));
         WebElement destination = driver.findElement(By.id("droppable"));
         Actions actions = new Actions(driver);
