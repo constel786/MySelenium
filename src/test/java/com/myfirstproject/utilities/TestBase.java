@@ -17,9 +17,9 @@ public abstract class TestBase {
     public void setUp(){
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
-    //    WebDriverManager.firefoxdriver().setup();
+    //    WebDriverManager.firefoxdriver().setup();  FOR FIREFOX If I GET CAPTCHA ON PAGE
     //    driver = new FirefoxDriver();
-    //    WebDriver driver = new ChromeDriver(new ChromeOptions().addArguments("--remote-allow-origins=*"));
+    //    WebDriver driver = new ChromeDriver(new ChromeOptions().addArguments("--remote-allow-origins=*")); IF I HAVE A VERSION ISSUE
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         driver.manage().window().maximize();
 
