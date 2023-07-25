@@ -26,6 +26,7 @@ public class Day07_Cookies extends TestBase {
 //        4. Add new cookie
         Cookie myFavCookie = new Cookie("my-cookie", "chocolate-cookie");
         driver.manage().addCookie(myFavCookie);
+
         Thread.sleep(3000);
         for (Cookie eachCookie : driver.manage().getCookies()){
             System.out.println("eachCookie = " + eachCookie);

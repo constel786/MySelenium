@@ -21,6 +21,5 @@ public class Day07_Actions2 extends TestBase {
         Actions actions = new Actions(driver);
         actions.dragAndDrop(target, destination).perform();
 
-
     }
 }
