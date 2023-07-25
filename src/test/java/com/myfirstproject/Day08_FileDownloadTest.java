@@ -20,7 +20,7 @@ public class Day08_FileDownloadTest extends TestBase {
     driver.get("https://the-internet.herokuapp.com/download");
     driver.findElement(By.linkText("test.txt"));
     Thread.sleep(3000);
-    String filePath = System.getProperty("user.home")+"downloads/test.txt";
+    String filePath = System.getProperty("user.home")+"/Downloads/test.txt";
 
     boolean isFileDownloaded = Files.exists(Paths.get(filePath));
     Assert.assertTrue(isFileDownloaded);
