@@ -32,7 +32,10 @@ public class Day09_ExtentReports extends TestBase {
 
         extentTest
                 .info("Navigating to the application homepage")
-                .addScreenCaptureFromPath(captureScreenshotEntirePageAsString());
+                .addScreenCaptureFromPath(captureScreenshotEntirePageAsString())
+                .assignAuthor("Ali", "Ayse", "Mark")
+                .assignCategory("Smoke", "Regression")
+                .assignDevice("Android", "Windows", "Mac");
 
 //        Given user is on https://testcenter.techproeducation.com/index.php?page=autocomplete
         driver.get("https://testcenter.techproeducation.com/index.php?page=autocomplete");
