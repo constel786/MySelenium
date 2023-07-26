@@ -24,7 +24,7 @@ public abstract class TestBase {
     public void setUp(){
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
-    //    WebDriverManager.firefoxdriver().setup();  FOR FIREFOX If I GET CAPTCHA ON PAGE
+    //    WebDriverManager.firefoxdriver().setup();  //FOR FIREFOX If I GET CAPTCHA ON PAGE
     //    driver = new FirefoxDriver();
     //    WebDriver driver = new ChromeDriver(new ChromeOptions().addArguments("--remote-allow-origins=*")); //IF I HAVE A VERSION ISSUE
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
@@ -43,8 +43,9 @@ public abstract class TestBase {
         File image = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 
         //2. Step: Type a dynamic name for screenshots images
-        String time = new SimpleDateFormat("yyyyMMddmmss").format(new Date());//This will give us the current time
-        String path = System.getProperty("user.dir")+"/test-output/Screenshot"+time+".png";
+        String time = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());//This will give us the current time
+        String path = System.getProperty("user.dir")+"/test-output/Screenshot/"+time+"image.png";
+        //String path = "/Users/eozer1/Selenium Projects/MySeleniumProject"+"/test-output/Screenshot"+time+".png";
 
         //3. Step: Save the image in the path
         FileUtils.copyFile(image, new File(path));
