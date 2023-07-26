@@ -2,6 +2,7 @@ package com.myfirstproject;
 
 import com.myfirstproject.utilities.TestBase;
 import org.apache.commons.io.FileUtils;
+import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
@@ -27,7 +28,7 @@ public class Day08_CaptureScreenshot extends TestBase {
 
 
 //        And select the 'United Kingdom' from the suggestions
-        driver.findElement(By.xpath("//div[.='United Kingdom']")).click();
+        driver.findElement(By.xpath("//div[@id='myCountryautocomplete-list']//*[.='United Kingdom']")).click();
         Thread.sleep(1000);
         captureScreenshotEntirePage();
 
@@ -37,8 +38,9 @@ public class Day08_CaptureScreenshot extends TestBase {
         captureScreenshotEntirePage();
 
 //        Then verify the result contains 'United Kingdom'
-        String resultText = driver.findElement(By.cssSelector("#result")).getText();
-        assertTrue(resultText.contains("United Kingdom"));
+        //String resultText = driver.findElement(By.cssSelector("#result")).getText();
+        //assertTrue(resultText.contains("United Kingdom"));
+        Assert.assertTrue(driver.findElement(By.cssSelector("#result")).getText().contains("United Kingdom"));
         Thread.sleep(1000);
         captureScreenshotEntirePage();
 
