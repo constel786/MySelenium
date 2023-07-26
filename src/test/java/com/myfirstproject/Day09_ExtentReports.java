@@ -38,6 +38,7 @@ public class Day09_ExtentReports extends TestBase {
         driver.get("https://testcenter.techproeducation.com/index.php?page=autocomplete");
         Thread.sleep(2000);
         extentTest
+
                 .pass("User is on the application homepage")
                 .addScreenCaptureFromPath(captureScreenshotEntirePageAsString());
 
