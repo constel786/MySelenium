@@ -57,8 +57,8 @@ public class Day10_ReadExcel {
 //    HOMEWORK: Print country, capital key value pairs as map object()
     //Use a loop to add key value pairs in the Map using the pattern of indexes
 
-        //int rowNumber = 0;
-        //for (rowNumber, i, ++i)
+        //List<WebElement>
+        //for (eachElement
         //String countries = sheet1.getRow(rowNumber).getCell(0).toString();
         //String capitals = sheet1.getRow(rowNumber).getCell(1).toString();
 
