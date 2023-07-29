@@ -1,12 +1,15 @@
 package com.myfirstproject.practices.practice04;
 
 import com.myfirstproject.utilities.TestBase;
+import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
 import java.util.List;
+
+import static junit.framework.TestCase.assertTrue;
 
 public class Q05_DeleteAndDragBack extends TestBase {
     /*
@@ -23,8 +26,9 @@ public class Q05_DeleteAndDragBack extends TestBase {
         driver.switchTo().frame(iFrame);
         List<WebElement> deleteButtons = driver.findElements(By.xpath("//a[.='Delete image']"));
         deleteButtons.forEach(WebElement::click);
+        assertTrue(driver.findElement(By.xpath("//a[.='Recycle image']")).isDisplayed());
 
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         List<WebElement> recycleButtons = driver.findElements(By.xpath("//a[.='Recycle image']"));
         System.out.println("recycleButtons.size() = " + recycleButtons.size());
         recycleButtons.forEach(WebElement::click);
@@ -33,18 +37,16 @@ public class Q05_DeleteAndDragBack extends TestBase {
 //            w.click();
 //         }
 
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         List<WebElement> images = driver.findElements(By.xpath("//ul[@id='gallery']/li"));
         WebElement trash = driver.findElement(By.id("trash"));
         Actions actions = new Actions(driver);
         images.forEach(t->actions.pause(500).dragAndDrop(t, trash).perform());
-
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         WebElement gallery = driver.findElement(By.id("gallery"));
         images.forEach(t->actions.pause(500).dragAndDrop(t, gallery).perform());
 
-        //Find an assertion
-
-
+        //Do an assertion, such as the delete and recycle buttons that change
+        assertTrue(driver.findElements(By.xpath("//a[.='Delete image']")).isEmpty());
     }
 }
