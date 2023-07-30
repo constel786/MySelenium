@@ -176,9 +176,9 @@ public abstract class TestBase {
     Locating elements by javascript executor. Normally we don't need this at all.
     return WebElement
      */
-    public WebElement locateElementByJS(String id) {
+    public WebElement locateElementByJS(String id){
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        return ((WebElement)js.executeScript("document.getElementById('"+id+"')"));
+        return ((WebElement)js.executeScript("return document.getElementById('"+id+"')"));
     }
     /*
     Getting the value of elements. Useful to get values of input elements where getText() doesn't work
@@ -188,9 +188,16 @@ public abstract class TestBase {
     return document.getElementById('"+id+"').value -> RETURN THE VALUE ATTRIBUTE OF THE ELEMENT
     toString() -> RETURN THE VALUE AS STRING
      */
-    public static String getValueByJS(String id) {
+    public static String getValueByJS(String id){
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        return js.executeScript("document.getElementById('"+id+"').value").toString();
+        return js.executeScript("return document.getElementById('"+id+"').value").toString();
     }
-
+    /*
+    @param1 WebElement, @param2 String
+    Type the String in that input element
+     */
+    public static void setValueByJS(WebElement inputElement,String text){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].setAttribute('value','"+text+"')",inputElement);
+    }
 }
