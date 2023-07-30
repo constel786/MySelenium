@@ -9,10 +9,7 @@ import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -141,5 +138,37 @@ public abstract class TestBase {
         }
     }
 
-
+//      JS EXECUTOR METHODS
+    /*
+    Click with JS
+    param: WebElement
+    action: clicks on the given element
+     */
+    public static void clickByJS(WebElement element){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();", element);
+    }
+    /*
+    Scroll into specific elements
+    param: WebElement
+    action: scrolls into the given element
+     */
+    public static void scrollIntoViewJS(WebElement element){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView(true);", element);
+    }
+    /*
+    Scroll all the way to the bottom
+     */
+    public static void scrollAllDownJS(){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+    }
+    /*
+    Scroll all the way to the top
+     */
+    public static void scrollAllUpJS(){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollTo(0, -document.body.scrollHeight)");
+    }
 }

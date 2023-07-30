@@ -43,7 +43,7 @@ public class Day10_WebTables extends TestBase {
             System.out.println(each.getText());
         }
         //    Task 3 : Print Last row data only
-        System.out.println("LAST ROW DATA : " + allRows.get(allRows.size() - 1).getText());
+        System.out.println("LAST ROW DATA: " + allRows.get(allRows.size() - 1).getText());
     }
 
     //    Task 4 : Print column 5 data in the table body
@@ -55,5 +55,6 @@ public class Day10_WebTables extends TestBase {
         for (WebElement each : column5Data) {
             System.out.println(each.getText());
         }
+
     }
 }

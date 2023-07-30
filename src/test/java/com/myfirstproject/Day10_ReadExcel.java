@@ -58,7 +58,7 @@ public class Day10_ReadExcel {
     //Use a loop to add key value pairs in the Map using the pattern of indexes
 
         //List<WebElement>
-        //for (eachElement
+        //for (rowNumber
         //String countries = sheet1.getRow(rowNumber).getCell(0).toString();
         //String capitals = sheet1.getRow(rowNumber).getCell(1).toString();
 
