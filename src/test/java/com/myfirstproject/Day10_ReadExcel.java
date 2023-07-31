@@ -62,7 +62,7 @@ public class Day10_ReadExcel {
         //String countries = sheet1.getRow(rowNumber).getCell(0).toString();
         //String capitals = sheet1.getRow(rowNumber).getCell(1).toString();
 
-    add this to Map and print
+    //add this to Map and print
         //Map pairs = countries+capitals;
         //System.out.println("pairs = " + pairs);
 }
