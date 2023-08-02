@@ -3,6 +3,7 @@ package com.myfirstproject.utilities;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+import com.github.javafaker.Faker;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.io.FileUtils;
 import org.junit.AfterClass;
@@ -547,5 +548,8 @@ public abstract class TestBase {
 
         driver.get(url);
     }
-
+    // Java Faker
+    public static Faker getFaker(){
+        return new Faker();
+    }
 }
