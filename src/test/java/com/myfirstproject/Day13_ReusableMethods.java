@@ -22,6 +22,9 @@ public class Day13_ReusableMethods extends TestBase {
     public void signUpTest() throws IOException {
 //        driver.get("https://www.automationexercise.com/");
         openURL("https://www.automationexercise.com/");
+        extentTest
+                .pass("on the homepage")
+                .addScreenCaptureFromPath(captureScreenshotEntirePageAsString());
 //        driver.findElement(By.linkText("Signup / Login")).click();
         clickWithTimeoutByJS(driver.findElement(By.linkText("Signup / Login")));
 //        driver.findElement(By.name("name")).sendKeys("johnny");
@@ -112,7 +115,7 @@ public class Day13_ReusableMethods extends TestBase {
         clickWithTimeoutByJS(driver.findElement(By.xpath("//button[.='Create Account']")));
 
         extentTest
-                .pass("sign up information is entered.. Create Account button is clicked..")
+                .pass("sign up information is entered. Create Account button is clicked.")
                 .addScreenCaptureFromPath(captureScreenshotEntirePageAsString());
 //        NOTE: THERE IS A WEB POP UP THAT IS SHOWING UP AFTER CLICKING CREATE ACCOUNT AND WE MUST CLOSE TO PROCEED
 //        USING TRY CATCH BECAUSE THIS POP UP MAY NOT ALWAYS SHOW UP
