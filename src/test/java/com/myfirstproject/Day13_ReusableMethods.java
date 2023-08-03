@@ -21,6 +21,7 @@ public class Day13_ReusableMethods extends TestBase {
     @Test
     public void signUpTest() throws IOException {
 //        driver.get("https://www.automationexercise.com/");
+        extentTest.pass("Starting the sign up test");
         openURL("https://www.automationexercise.com/");
         extentTest
                 .pass("on the homepage")
@@ -31,7 +32,7 @@ public class Day13_ReusableMethods extends TestBase {
 //        driver.findElement(By.name("email")).sendKeys("johnny0090@gmail.com");
 //        driver.findElement(By.xpath("//button[@data-qa='signup-button']")).click();
         sendKeysWithTimeout(driver.findElement(By.name("name")),"johnny",5);
-        sendKeysWithTimeout(driver.findElement(By.xpath("//input[@data-qa='signup-email']")),"johnny0070@gmail.com",5);
+        sendKeysWithTimeout(driver.findElement(By.xpath("//input[@data-qa='signup-email']")),"johnny0060@gmail.com",5);
         clickWithTimeoutByJS(driver.findElement(By.xpath("//button[@data-qa='signup-button']")));
 
 

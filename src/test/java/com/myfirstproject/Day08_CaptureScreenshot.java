@@ -43,7 +43,6 @@ public class Day08_CaptureScreenshot extends TestBase {
         Assert.assertTrue(driver.findElement(By.cssSelector("#result")).getText().contains("United Kingdom"));
         Thread.sleep(1000);
         captureScreenshotEntirePage();
-
     }
 }
 

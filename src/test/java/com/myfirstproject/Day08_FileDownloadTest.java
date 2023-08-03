@@ -18,7 +18,7 @@ public class Day08_FileDownloadTest extends TestBase {
 @Test
     public void downloadTest() throws InterruptedException {
     driver.get("https://the-internet.herokuapp.com/download");
-    driver.findElement(By.linkText("test.txt"));
+    driver.findElement(By.linkText("test.txt")).click();
     Thread.sleep(3000);
     String filePath = System.getProperty("user.home")+"/Downloads/test.txt";
 

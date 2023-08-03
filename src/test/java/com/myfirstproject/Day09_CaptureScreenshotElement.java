@@ -12,6 +12,5 @@ public class Day09_CaptureScreenshotElement extends TestBase {
         WebElement googleImage = driver.findElement(By.xpath("//img[@alt='Google']"));
         captureScreenshotElement(googleImage); //this is new here and it works!!
         captureScreenshotEntirePage(); //Can do this too
-
     }
 }
