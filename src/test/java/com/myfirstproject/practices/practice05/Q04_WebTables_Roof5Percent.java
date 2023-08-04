@@ -39,7 +39,6 @@ public class Q04_WebTables_Roof5Percent extends TestBase {
     int minYear = Integer.parseInt(buildYears.get(0).getText());
 
         for (WebElement w : buildYears){
-            //System.out.println(w.getText()); //To see all the years from the table
             if (minYear> Integer.parseInt(w.getText())){
                 minYear = Integer.parseInt(w.getText());
             }
