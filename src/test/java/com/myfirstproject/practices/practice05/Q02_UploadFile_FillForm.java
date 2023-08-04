@@ -62,6 +62,5 @@ public class Q02_UploadFile_FillForm extends TestBase {
 //        Verify that uploaded file name is on the Form Details.
         String fileName = driver.findElement(By.id("_valuefilename")).getText();
         assertEquals("image.png", fileName);
-
     }
 }
