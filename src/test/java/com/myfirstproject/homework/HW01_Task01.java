@@ -25,9 +25,5 @@ public class HW01_Task01 extends TestBase {
         driver.findElement(By.cssSelector("input[id='u_b_g_ih']")).sendKeys("+12403980966");
         driver.findElement(By.xpath("//input[@id='password_step_input']")).sendKeys("Sifremolsun1234");
 
-
-
-
-
     }
 }
