@@ -15,7 +15,6 @@ public class HW01_Task01 extends TestBase {
 //    Enter birthday
 //    Enter gender
 //    Click Sign Up
-
     @Test
     public void task01(){
         driver.get("https://www.facebook.com/ ");
