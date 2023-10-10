@@ -21,7 +21,7 @@ public class HW01_Task01 extends TestBase {
         driver.findElement(By.xpath("//div//a[@id='u_0_0_5p']")).click();
         driver.findElement(By.xpath("//input[@name='firstname']")).sendKeys("James");
         driver.findElement(By.xpath("//input[@name='lastname']")).sendKeys("Brown");
-//        driver.findElement(By.cssSelector("input[id='u_b_g_ih']")).sendKeys("+12403980966");
+        driver.findElement(By.cssSelector("input[id='u_b_g_ih']")).sendKeys("+12403980966");
 //        driver.findElement(By.xpath("//input[@id='password_step_input']")).sendKeys("Sifremolsun1234");
     }
 }
